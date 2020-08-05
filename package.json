@@ -36,6 +36,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.2.2",
     "babel-preset-gatsby": "^0.5.5",
     "identity-obj-proxy": "^3.0.0",
