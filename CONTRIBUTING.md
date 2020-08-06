@@ -15,11 +15,7 @@ emailing [info@agileventures.org](mailto:info@agileventures.org).
 We meet a couple of times a week to work together on the project, following a
 group coding and decision-making technique known as [Mob
 programming](https://en.wikipedia.org/wiki/Mob_programming).
-Babel ES6/ES7
-JSON Tools
-markdownlint
-Rainbow Brackets
-vscode-icons
+
 The preferred way to contribute to the project is by participating in these
 coding events, which can be found on the current website for AgileVentures
 under [events](https://www.agileventures.org/events). Look for "Website 2.0 Mob
@@ -54,7 +50,7 @@ one):
 6. Rainbow Brackets
 7. vscode-icons
 
-The best way to have a look at, and instal these extensions from the
+The best way to have a look at, and install these extensions from the
 _extensions_ tab in you vscode, usually on the left side of the editor.
 
 You can find an overview of these extensions (recommended by the Gatsby
