@@ -29,7 +29,13 @@ cd  WebsiteTwo
 yarn
 ```
 
-3. **Run the local server**
+3. **Run the tests**
+
+```
+yarn test
+```
+
+4. **Run the local server**
 
 ```
 gatsby develop
