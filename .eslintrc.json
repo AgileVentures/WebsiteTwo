@@ -1,8 +1,12 @@
 {
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
   "env": {
     "browser": true,
     "es2020": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -19,16 +23,19 @@
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "no-underscore-dangle": ["error", { "allow": ["___loader"] }],
     "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [
       "error",
       {
         "extensions": [".js", ".jsx"]
       }
     ],
-    "react/prop-types": 0,
+    "react/no-danger": "off",
+    "react/prop-types": "off",
     "no-unused-vars": [
       "error",
       {
