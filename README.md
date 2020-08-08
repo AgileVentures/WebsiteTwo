@@ -31,11 +31,14 @@ yarn
 
 3. **Run the tests**
 
+<<<<<<< HEAD
 Unit tests can be run with:
 
 ```
 yarn test
 ```
+
+<<<<<<< HEAD
 
 <!-- Waiting for the related PR to be merged
 You can run the end-to-end tests in your browser with:
