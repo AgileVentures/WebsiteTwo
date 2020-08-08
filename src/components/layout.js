@@ -21,7 +21,7 @@ const Layout = ({ location, title, children }) => {
             boxShadow: `none`,
             color: `inherit`,
           }}
-          to={`/`}
+          to="/"
         >
           {title}
         </Link>
@@ -40,7 +40,7 @@ const Layout = ({ location, title, children }) => {
             boxShadow: `none`,
             color: `inherit`,
           }}
-          to={`/`}
+          to="/"
         >
           {title}
         </Link>

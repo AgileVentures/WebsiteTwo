@@ -26,6 +26,7 @@
     "gatsby-transformer-remark": "^2.8.20",
     "gatsby-transformer-sharp": "^2.5.7",
     "prismjs": "^1.20.0",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
@@ -40,8 +41,19 @@
     "@testing-library/react": "^10.4.8",
     "babel-jest": "^26.2.2",
     "babel-preset-gatsby": "^0.5.5",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-test": "^1.0.4",
+    "husky": ">=4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.2.2",
+    "lint-staged": ">=10",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1"
   },
@@ -59,9 +71,16 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
