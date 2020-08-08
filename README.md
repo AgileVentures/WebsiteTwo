@@ -31,15 +31,36 @@ yarn
 
 3. **Run the tests**
 
+Unit tests can be run with:
+
 ```
 yarn test
 ```
+
+<!-- Waiting for the related PR to be merged
+You can run the end-to-end tests in your browser with:
+
+```
+yarn test:e2e
+```
+
+or you can run them in your cli with:
+```
+yarn test:e2e:ci
+```
+-->
 
 4. **Run the local server**
 
 ```
 gatsby develop
 ```
+
+## Contributing to the project
+
+If you wanted to contribute to the project that would be awesome!
+Please read the [CONTRIBUTING](https://github.com/AgileVentures/WebsiteTwo/blob/develop/CONTRIBUTING.md)
+file for information on how we work.
 
 ## History
 
