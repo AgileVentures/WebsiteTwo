@@ -12,8 +12,11 @@ The main functionality allows developers interested in pairing will enter times 
 
 Areas of interest uses the tag concept and includes but is not limited to projects, technologies, and organization.When you enter a tag, if the tag does not exist, you are given the option of adding a new tag.  An administrator can combine tags.
 
+The app allows you to associate user name from pair finder with other user names from other applications and has APIs that  allow those applications to use pair finder backend.
+
 The application includes screens that allow you to:
 - create an account
+- associate an account with a Google account and/or github account.
 - specify and save your areas of interest
 - specify and save your schedule
 - query people based on interests and schedule.  This screen will include:
@@ -23,10 +26,16 @@ The application includes screens that allow you to:
     - checkbox for matching based on your schedule:
       - if checked, people that match any of your times  will be selected.
       - if not checked, you will be able to specify a list of time ranges.  People that match any of those times will be selected.  
+- associate account with the account of another application
+- public APIs
 
 ### Technical Description
 
-Preferred technology: Firebase, Express, React, Node.  These technologies are performant, feature rich, and lightweight.  For backend, Ruby on Rails was also considered.  However, RoR is relatively slower and heavy weight and Express and Node are on the upward trend.  Mongoose was considered for database - however, Firebase has better integreation with authentication and has other features that make it easier to use.  Firebase is not as scaleable, but it will be easy to switch if scalability becomes an issue.
+Technologies Considered
+- Database - Firebase vs Mongoose: Firebase preferred.  Firebase has better integreation with authentication and has other features that make it easier to use.  Firebase is not as scaleable, but it will be easy to switch if scalability becomes an issue.
+- Backend: Express/NodeJS vs Ruby on Rails.  Express/NodeJS is more performant and lightweight.  Both are feature rich, RoR has more template capability, which is part of what makes it more heavy weight.  Express/NodeJS and RoR are both very popular.  Express/NodeJS is becoming more popular, RoR is declining in popularity.
+- Front End: React
+- Testing: TDD for frontend that has logic (vs just display) and backend.
 
 ### Agile Ventures Source Control Link
 
