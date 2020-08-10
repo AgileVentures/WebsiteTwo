@@ -22,7 +22,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "prettier", "cypress"],
+  "plugins": ["react", "react-hooks", "cypress", "prettier"],
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "no-underscore-dangle": ["error", { "allow": ["___loader"] }],
