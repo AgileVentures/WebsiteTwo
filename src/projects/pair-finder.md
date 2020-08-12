@@ -43,7 +43,7 @@ TBD
 
 ### Agile Ventures Slack Channel
 
-SLACK-CHANNEL-NA-IF-NOT-CREATED-YET
+TBD
 
 ### Analysis of Needs
 
