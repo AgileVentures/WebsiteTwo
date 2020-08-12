@@ -39,7 +39,7 @@ Technologies Considered
 
 ### Agile Ventures Source Control Link
 
-TO-BE-PROVIED-BY-AGILE-VENTURES-ONCE-APPROVED
+TBD
 
 ### Agile Ventures Slack Channel
 
