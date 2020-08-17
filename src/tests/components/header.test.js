@@ -1,17 +1,12 @@
 import React from "react"
 import { render } from "@testing-library/react"
 
-import Layout from "../../components/layout"
-import siteMetadata from "../fixtures/site-metadata"
-import locations from "../fixtures/locations"
+import Header from "../../components/header"
 
-describe("<Layout/>", () => {
-  it("renders the title in the homepage", () => {
-    const { title } = siteMetadata
-    const { getByRole } = render(
-      <Layout title={title} location={locations.home} />
-    )
+describe("<Header/>", () => {
+  it("renders the logo in the homepage", () => {
+    const { getByTestId } = render(<Header />)
 
-    expect(getByRole("heading")).toHaveTextContent(title)
+    expect(getByTestId("logo"))
   })
 })
