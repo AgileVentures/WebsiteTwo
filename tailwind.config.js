@@ -3,9 +3,13 @@ module.exports = {
   theme: {
     colors: {
       header: "#ee7335",
+      footer: "#2c3e50",
     },
     extend: {},
   },
   variants: {},
   plugins: [],
+  corePlugins: {
+    fontFamily: false,
+  },
 }
