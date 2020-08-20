@@ -1,4 +1,6 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 const Footer = () => {
   return (
@@ -14,7 +16,7 @@ const Footer = () => {
               rel="noreferrer"
               style={{ "white-space": `nowrap` }}
             >
-              <i className="fa fa-facebook fa-custom-social" />
+              <FontAwesomeIcon icon={faFacebookF} />
               &nbsp;Facebook
             </a>
           </li>
@@ -26,7 +28,7 @@ const Footer = () => {
               rel="noreferrer"
               style={{ "white-space": `nowrap` }}
             >
-              <i className="fa fa-twitter fa-custom-social" />
+              <FontAwesomeIcon icon={faTwitter} />
               Twitter
             </a>
           </li>
