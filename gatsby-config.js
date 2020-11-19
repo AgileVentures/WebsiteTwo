@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
@@ -46,6 +50,17 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "AgileVentures",
+        // This is the field under which it's accessible
+        fieldName: "events",
+        // URL to query from
+        url: process.env.REACT_APP_AGILEVENTURES_API,
       },
     },
     `gatsby-transformer-sharp`,
