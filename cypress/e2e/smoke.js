@@ -1,5 +1,5 @@
 describe("Smoke test", () => {
   it("generally works", () => {
-    cy.visit("/").get("h1").contains("Gatsby Starter Blog")
+    cy.visit("/").get("h2").contains("Agile Ventures")
   })
 })
