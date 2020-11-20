@@ -2,14 +2,47 @@
 
 exports[`EventList renders correctly 1`] = `
 <div>
-  <h2>
-    cumque vel id
-  </h2>
-  <h2>
-    ea libero assumenda
-  </h2>
-  <h2>
-    sint sint eum
-  </h2>
+  <div
+    className="bg-white rounded shadow border p-6 mb-4 mt-0"
+  >
+    <h2
+      className="text-2xl font-bold"
+    >
+      cumque vel id
+    </h2>
+    <div
+      className="text-gray-700"
+    >
+      2020-11-16T01:07:50Z
+    </div>
+  </div>
+  <div
+    className="bg-white rounded shadow border p-6 mb-4 mt-0"
+  >
+    <h2
+      className="text-2xl font-bold"
+    >
+      ea libero assumenda
+    </h2>
+    <div
+      className="text-gray-700"
+    >
+      2020-11-16T01:07:50Z
+    </div>
+  </div>
+  <div
+    className="bg-white rounded shadow border p-6 mb-4 mt-0"
+  >
+    <h2
+      className="text-2xl font-bold"
+    >
+      sint sint eum
+    </h2>
+    <div
+      className="text-gray-700"
+    >
+      2020-11-16T01:07:50Z
+    </div>
+  </div>
 </div>
 `;
