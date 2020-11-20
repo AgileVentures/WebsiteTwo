@@ -1,6 +1,14 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
+export const PureEventList = ({ data }) => (
+  <div>
+    {data.av.events.map(e => (
+      <h2>{e.name}</h2>
+    ))}
+  </div>
+)
+
 export default function EventList() {
   return (
     <StaticQuery
@@ -19,13 +27,7 @@ export default function EventList() {
           }
         }
       `}
-      render={data => (
-        <div>
-          {data.av.events.map(e => (
-            <h2>{e.name}</h2>
-          ))}
-        </div>
-      )}
+      render={data => <PureEventList data={data} />}
     />
   )
 }

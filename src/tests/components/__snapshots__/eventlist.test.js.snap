@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventList renders correctly 1`] = `
+<div>
+  <h2>
+    cumque vel id
+  </h2>
+  <h2>
+    ea libero assumenda
+  </h2>
+  <h2>
+    sint sint eum
+  </h2>
+</div>
+`;
