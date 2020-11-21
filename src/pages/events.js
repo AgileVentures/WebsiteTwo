@@ -15,9 +15,9 @@ const EventIndex = ({ data, location }) => {
           or Agile Ventures.
           <span className="font-bold">
             {" "}
-            Each event will have a link to the hangout below. You can also add
-            events to your calendar.
-          </span>
+            Each event will have a link to the hangout below.
+          </span>{" "}
+          You can also add events to your calendar.
         </div>
         <EventList />
       </header>

@@ -1,12 +1,15 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import moment from "moment"
 
 export const PureEventList = ({ data }) => (
   <div>
     {data.av.events.map(e => (
       <div className="bg-white rounded shadow border p-6 mb-4 mt-0">
         <h2 className="text-2xl font-bold">{e.name}</h2>
-        <div className="text-gray-700">{e.startDatetime}</div>
+        <div className="text-gray-700">
+          {moment(e.startDatetime).format("dddd MMMM Do, YYYY hh:mma")}
+        </div>
       </div>
     ))}
   </div>
