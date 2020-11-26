@@ -1,5 +1,5 @@
 import React from "react"
-import DynamicEventList from "../components/eventlist"
+import EventList from "../components/eventlist"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -19,7 +19,7 @@ const EventIndex = ({ data, location }) => {
           </span>{" "}
           You can also add events to your calendar.
         </div>
-        <DynamicEventList />
+        <EventList />
       </header>
     </Layout>
   )

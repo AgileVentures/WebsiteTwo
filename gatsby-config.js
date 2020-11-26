@@ -52,17 +52,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // This type will contain remote schema Query type
-        typeName: "AgileVentures",
-        // This is the field under which it's accessible
-        fieldName: "av",
-        // URL to query from
-        url: process.env.REACT_APP_AGILEVENTURES_API,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
