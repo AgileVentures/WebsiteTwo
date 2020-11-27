@@ -1,14 +1,18 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `AgileVentures Charity`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `AgileVentures`,
+      summary: `a registered charity.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Our website.`,
+    siteUrl: `https://agileventures.org/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `AgileVentures`,
     },
   },
   plugins: [
@@ -80,5 +84,11 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-postcss",
+      options: {
+        postCssPlugins: [require("tailwindcss")("./tailwind.config.js")],
+      },
+    },
   ],
 }
