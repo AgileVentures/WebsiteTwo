@@ -34,7 +34,7 @@
     "gatsby-transformer-remark": "^2.8.20",
     "gatsby-transformer-sharp": "^2.5.7",
     "graphql": "^15.4.0",
-    "moment": "^2.29.1",
+    "luxon": "^1.25.0",
     "postcss": "^8.1.8",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",

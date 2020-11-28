@@ -1,5 +1,5 @@
 import React from "react"
-import moment from "moment"
+import { DateTime } from "luxon"
 import { useQuery, gql } from "@apollo/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../utils/font-awesome"
@@ -15,6 +15,7 @@ const EVENTS_LIST = gql`
         timeZone
         duration
         category
+        description
       }
       time
     }
@@ -28,11 +29,21 @@ export const PureEventList = ({ data }) => (
         <h2 className="text-2xl font-bold">{e.event.name}</h2>
         <FontAwesomeIcon icon="calendar" />
         <span className="month text-gray-700">
-          {moment(e.time).format("dddd MMMM Do, YYYY")}
+          {" "}
+          {DateTime.fromISO(e.time).toLocaleString(
+            DateTime.DATE_MED_WITH_WEEKDAY
+          )}
         </span>
         <br />
         <FontAwesomeIcon icon="clock" />
-        <span className="text-gray-700">{moment(e.time).format("hh:mma")}</span>
+        <span className="text-gray-700">
+          {" "}
+          {DateTime.fromISO(e.time).toLocaleString(DateTime.TIME_SIMPLE)}-
+          {DateTime.fromISO(e.time)
+            .plus({ minutes: e.event.duration })
+            .toLocaleString(DateTime.TIME_SIMPLE)}
+        </span>
+        <div>{e.event.description}</div>
       </div>
     ))}
   </div>
