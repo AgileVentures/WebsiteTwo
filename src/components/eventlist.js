@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../utils/font-awesome"
 
 const EVENTS_LIST = gql`
-  query {
+  query listEvents {
     upcomingEvents {
       event {
         id
@@ -16,6 +16,7 @@ const EVENTS_LIST = gql`
         duration
         category
         description
+        slug
       }
       time
     }
@@ -26,7 +27,9 @@ export const PureEventList = ({ data }) => (
   <div>
     {data.upcomingEvents.map(e => (
       <div className="bg-white rounded shadow border p-6 mb-4 mt-0">
-        <h2 className="text-2xl font-bold">{e.event.name}</h2>
+        <h2 className="text-2xl font-bold">
+          <a href={`/events/${e.event.slug}`}>{e.event.name}</a>
+        </h2>
         <FontAwesomeIcon icon="calendar" />
         <span className="month text-gray-700">
           {" "}

@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../utils/font-awesome"
 
 const EVENT = gql`
-  query {
-    event(slug: "atlantic-scrum") {
+  query showEvent($slug: String!) {
+    event(slug: $slug) {
       id
       name
       repeats
@@ -19,35 +19,38 @@ const EVENT = gql`
   }
 `
 
-export const PureEventList = ({ data }) => (
+export const PureEventShow = ({ data }) => (
   <div>
-    <div className="bg-white rounded shadow border p-6 mb-4 mt-0">
-      <h2 className="text-2xl font-bold">{data.event.name}</h2>
-      <FontAwesomeIcon icon="calendar" />
-      <span className="month text-gray-700">
-        {" "}
-        {DateTime.fromISO(data.event.startDatetime).toLocaleString(
-          DateTime.DATE_MED_WITH_WEEKDAY
-        )}
-      </span>
-      <br />
-      <FontAwesomeIcon icon="clock" />
-      <span className="text-gray-700">
-        {" "}
-        {DateTime.fromISO(data.event.startDatetime).toLocaleString(
-          DateTime.TIME_SIMPLE
-        )}
-      </span>
-      <div>{data.event.description}</div>
-    </div>
+    <h2 className="text-2xl font-bold">{data.event.name}</h2>
+    <div>{data.event.description}</div>
+    <div>Event type: {data.event.category}</div>
+    <FontAwesomeIcon icon="calendar" />
+    <span className="month text-gray-700">
+      {" "}
+      {DateTime.fromISO(data.event.startDatetime).toLocaleString(
+        DateTime.DATE_MED_WITH_WEEKDAY
+      )}
+    </span>
+    <br />
+    <FontAwesomeIcon icon="clock" />
+    <span className="text-gray-700">
+      {" "}
+      {DateTime.fromISO(data.event.startDatetime).toLocaleString(
+        DateTime.TIME_SIMPLE
+      )}
+    </span>
   </div>
 )
 
-export default function EventShow(slug) {
-  const { loading, error, data } = useQuery(EVENT)
+const EventShow = ({ slug }) => {
+  const { loading, error, data } = useQuery(EVENT, {
+    variables: { slug },
+  })
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
-  return <PureEventList data={data} />
+  return <PureEventShow data={data} />
 }
+
+export default EventShow

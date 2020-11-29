@@ -8,7 +8,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Premium event
+      <a
+        href="/events/premium-event"
+      >
+        Premium event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -30,7 +34,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Thursday November 26th, 2020
+       
+      Thu, Nov 26, 2020
     </span>
     <br />
     <svg
@@ -53,8 +58,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      11:45am
+       
+      11:45 AM
+      -
+      1:05 AM
     </span>
+    <div />
   </div>
   <div
     className="bg-white rounded shadow border p-6 mb-4 mt-0"
@@ -62,7 +71,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Morning event
+      <a
+        href="/events/morning-event"
+      >
+        Morning event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -84,7 +97,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Thursday November 26th, 2020
+       
+      Thu, Nov 26, 2020
     </span>
     <br />
     <svg
@@ -107,8 +121,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      12:15pm
+       
+      12:15 PM
+      -
+      1:35 AM
     </span>
+    <div />
   </div>
   <div
     className="bg-white rounded shadow border p-6 mb-4 mt-0"
@@ -116,7 +134,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Evening event
+      <a
+        href="/events/evening-event"
+      >
+        Evening event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -138,7 +160,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Thursday November 26th, 2020
+       
+      Thu, Nov 26, 2020
     </span>
     <br />
     <svg
@@ -161,8 +184,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      05:45pm
+       
+      5:45 PM
+      -
+      8:25 PM
     </span>
+    <div />
   </div>
   <div
     className="bg-white rounded shadow border p-6 mb-4 mt-0"
@@ -170,7 +197,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Premium event
+      <a
+        href="/events/premium-event"
+      >
+        Premium event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -192,7 +223,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Friday November 27th, 2020
+       
+      Fri, Nov 27, 2020
     </span>
     <br />
     <svg
@@ -215,8 +247,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      11:45am
+       
+      11:45 AM
+      -
+      1:05 AM
     </span>
+    <div />
   </div>
   <div
     className="bg-white rounded shadow border p-6 mb-4 mt-0"
@@ -224,7 +260,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Morning event
+      <a
+        href="/events/morning-event"
+      >
+        Morning event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -246,7 +286,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Friday November 27th, 2020
+       
+      Fri, Nov 27, 2020
     </span>
     <br />
     <svg
@@ -269,8 +310,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      12:15pm
+       
+      12:15 PM
+      -
+      1:35 AM
     </span>
+    <div />
   </div>
   <div
     className="bg-white rounded shadow border p-6 mb-4 mt-0"
@@ -278,7 +323,11 @@ exports[`EventList renders correctly 1`] = `
     <h2
       className="text-2xl font-bold"
     >
-      Evening event
+      <a
+        href="/events/evening-event"
+      >
+        Evening event
+      </a>
     </h2>
     <svg
       aria-hidden="true"
@@ -300,7 +349,8 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="month text-gray-700"
     >
-      Friday November 27th, 2020
+       
+      Fri, Nov 27, 2020
     </span>
     <br />
     <svg
@@ -323,8 +373,12 @@ exports[`EventList renders correctly 1`] = `
     <span
       className="text-gray-700"
     >
-      05:45pm
+       
+      5:45 PM
+      -
+      8:25 PM
     </span>
+    <div />
   </div>
 </div>
 `;
