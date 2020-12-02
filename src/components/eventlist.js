@@ -26,7 +26,12 @@ const EVENTS_LIST = gql`
 export const PureEventList = ({ data }) => (
   <div>
     {data.upcomingEvents.map(e => (
-      <div className="bg-white rounded shadow border p-6 mb-4 mt-0">
+      <div
+        className="bg-white rounded shadow border p-6 mb-4 mt-0"
+        key={`event-${e.event.id}-${DateTime.fromISO(e.time).toLocaleString(
+          DateTime.DATE_MED
+        )}`}
+      >
         <h2 className="text-2xl font-bold">
           <a href={`/events/${e.event.slug}`}>{e.event.name}</a>
         </h2>
