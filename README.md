@@ -5,7 +5,7 @@ This is a complete redesign of the
 currently serving as AgileVentures'
 [website](https://www.agileventures.org).
 
-It is being rewritten as a static site generated with [Gatsby](https://www.gatsbyjs.org).
+It is being rewritten as a static site generated with [Gatsby](https://www.gatsbyjs.org) with some dynamic elements using [Apollo](https://www.apollographql.com).
 
 ## Requirements
 
@@ -29,20 +29,7 @@ cd  WebsiteTwo
 yarn
 ```
 
-3. **Run the backend server**
-
-Clone the backend to your computer and run it in a separate terminal. See [install instructions](https://github.com/AgileVentures/WebsiteOneBackendApi/blob/develop/Installations.md) for details:
-
-```
-git clone https://github.com/AgileVentures/WebsiteOneBackendApi
-cd WebsiteOneBackendApi
-bundle install
-yarn install
-
-bundle exec rails s
-```
-
-4. **Run the tests**
+3. **Run the tests**
 
 Unit tests can be run with:
 
@@ -66,6 +53,19 @@ yarn test:e2e:ci
 
 ```
 gatsby develop
+```
+
+5. **Run the backend server**
+
+Clone the backend to your computer and run it in a separate terminal. See [install instructions](https://github.com/AgileVentures/WebsiteOneBackendApi/blob/develop/Installations.md) for details:
+
+```
+git clone https://github.com/AgileVentures/WebsiteOneBackendApi
+cd WebsiteOneBackendApi
+bundle install
+yarn install
+
+bundle exec rails s
 ```
 
 ## Contributing to the project
