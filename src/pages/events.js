@@ -2,6 +2,7 @@ import React from "react"
 import { Router } from "@reach/router"
 import EventList from "../components/eventlist"
 import EventShow from "../components/eventshow"
+import EventForm from "../components/eventform"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -28,6 +29,7 @@ const EventIndex = ({ data, location }) => {
     <Layout location={location} title="Events">
       <SEO title="All events" />
       <Router basepath="/events">
+        <EventForm path="/new" />
         <EventShow path="/:slug" />
         <Default path="/" />
       </Router>
