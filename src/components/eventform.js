@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react"
 import { gql, useMutation } from "@apollo/client"
 import DateTimePicker from "react-datetime-picker"
@@ -7,7 +8,7 @@ export const CREATE_EVENT = gql`
   mutation CreateEvent($event: CreateEventInput!) {
     createEvent(input: $event) {
       id
-      name
+      slug
     }
   }
 `
@@ -21,7 +22,6 @@ const EventForm = props => {
     projectId: 0,
     description: "",
     timeZone: "UTC",
-    endDate: "",
     duration: 0,
     repeats: "never",
     repeatEnds: "never",
@@ -65,6 +65,7 @@ const EventForm = props => {
     variables: {
       event: {
         name: formState.name,
+        description: formState.description,
         category: formState.category,
         timeZone: formState.timeZone,
         repeats: formState.repeats,
@@ -76,6 +77,10 @@ const EventForm = props => {
         // endDateTime: endDate,
         clientMutationId: "web",
       },
+    },
+    onCompleted(data) {
+      if (typeof window !== `undefined`)
+        window.location.replace(`/events/${data.createEvent.slug}`)
     },
   })
 
@@ -90,241 +95,239 @@ const EventForm = props => {
         <div className="grid md:grid-cols-6 gap-4">
           <div className="col-span-4">
             <label className="text-xl font-semibold" htmlFor="name">
-              Name:
-              <input
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                type="text"
-                id="name"
-                value={formState.name}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    name: e.target.value,
-                  })
-                }
-                required
-              />
+              Name
             </label>
+            <input
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              type="text"
+              id="name"
+              value={formState.name}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  name: e.target.value,
+                })
+              }
+              required
+            />
             <label className="text-xl font-semibold" htmlFor="description">
-              Description:
-              <textarea
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                type="text"
-                id="description"
-                value={formState.description}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    description: e.target.value,
-                  })
-                }
-              />
+              Description
             </label>
-            <div className="text-xl font-semibold field">Start DateTime:</div>
+            <textarea
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              type="text"
+              id="description"
+              value={formState.description}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  description: e.target.value,
+                })
+              }
+            />
+            <div className="text-xl font-semibold field">Start DateTime</div>
             <DateTimePicker
               onChange={onStartDatetimeChange}
               value={startDate}
             />
             <br />
             <label className="text-xl font-semibold" htmlFor="duration">
-              Duration in minutes:
-              <input
-                className="mt-1 block rounded-md border-gray-300 shadow-sm"
-                id="duration"
-                type="number"
-                value={formState.duration}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    duration: e.target.value,
-                  })
-                }
-                required
-              />
+              Duration in minutes
             </label>
+            <input
+              className="mt-1 block rounded-md border-gray-300 shadow-sm"
+              id="duration"
+              type="number"
+              value={formState.duration}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  duration: e.target.value,
+                })
+              }
+              required
+            />
             <label className="text-xl font-semibold" htmlFor="repeats">
-              Repeats:
-              <select
-                id="repeats"
-                className="mt-1 block rounded-md border-gray-300 shadow-sm"
-                value={formState.repeats}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    repeats: e.target.value,
-                  })
-                }
-                required
-              >
-                <option value="never">never</option>
-                <option value="weekly">weekly</option>
-                <option value="biweekly">biweekly</option>
-              </select>
+              Repeats
             </label>
-            <label className="text-xl font-semibold" htmlFor="monday">
-              Monday:
-              <input
-                id="monday"
-                type="checkbox"
-                value={formState.monday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    monday: e.target.checked,
-                  })
-                }
-              />
+            <select
+              id="repeats"
+              className="mt-1 block rounded-md border-gray-300 shadow-sm"
+              value={formState.repeats}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  repeats: e.target.value,
+                })
+              }
+              required
+            >
+              <option value="never">never</option>
+              <option value="weekly">weekly</option>
+              <option value="biweekly">biweekly</option>
+            </select>
+            <label className="text-xl font-semibold mr-1" htmlFor="monday">
+              Monday
             </label>
+            <input
+              id="monday"
+              type="checkbox"
+              value={formState.monday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  monday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="tuesday">
-              Tuesday:
-              <input
-                id="tuesday"
-                type="checkbox"
-                value={formState.tuesday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    tuesday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="tuesday">
+              Tuesday
             </label>
+            <input
+              id="tuesday"
+              type="checkbox"
+              value={formState.tuesday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  tuesday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="wednesday">
-              Wednesday:
-              <input
-                id="wednesday"
-                name="wednesday"
-                type="checkbox"
-                value={formState.wednesday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    wednesday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="wednesday">
+              Wednesday
             </label>
+            <input
+              id="wednesday"
+              name="wednesday"
+              type="checkbox"
+              value={formState.wednesday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  wednesday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="thursday">
-              Thursday:
-              <input
-                id="thursday"
-                name="thursday"
-                type="checkbox"
-                value={formState.thursday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    thursday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="thursday">
+              Thursday
             </label>
+            <input
+              id="thursday"
+              name="thursday"
+              type="checkbox"
+              value={formState.thursday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  thursday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="friday">
-              Friday:
-              <input
-                id="friday"
-                name="friday"
-                type="checkbox"
-                value={formState.friday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    friday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="friday">
+              Friday
             </label>
+            <input
+              id="friday"
+              name="friday"
+              type="checkbox"
+              value={formState.friday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  friday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="saturday">
-              Saturday:
-              <input
-                id="saturday"
-                name="saturday"
-                type="checkbox"
-                value={formState.saturday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    saturday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="saturday">
+              Saturday
             </label>
+            <input
+              id="saturday"
+              name="saturday"
+              type="checkbox"
+              value={formState.saturday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  saturday: e.target.checked,
+                })
+              }
+            />
             <br />
-            <label className="text-xl font-semibold" htmlFor="sunday">
-              Sunday:
-              <input
-                id="sunday"
-                name="sunday"
-                type="checkbox"
-                value={formState.sunday}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    sunday: e.target.checked,
-                  })
-                }
-              />
+            <label className="text-xl font-semibold mr-1" htmlFor="sunday">
+              Sunday
             </label>
+            <input
+              id="sunday"
+              name="sunday"
+              type="checkbox"
+              value={formState.sunday}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  sunday: e.target.checked,
+                })
+              }
+            />
             <br />
             <label className="text-xl font-semibold" htmlFor="repeatends">
-              Repeat Ends:
-              <select
-                id="repeatends"
-                className="mt-1 block rounded-md border-gray-300 shadow-sm"
-                value={formState.repeatEnds}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    repeatEnds: e.target.value,
-                  })
-                }
-                required
-              >
-                <option value="on">on</option>
-                <option value="never">never</option>
-              </select>
+              Repeat Ends
             </label>
-            <div className="text-xl font-semibold field">End DateTime:</div>
+            <select
+              id="repeatends"
+              className="mt-1 block rounded-md border-gray-300 shadow-sm"
+              value={formState.repeatEnds}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  repeatEnds: e.target.value,
+                })
+              }
+              required
+            >
+              <option value="on">on</option>
+              <option value="never">never</option>
+            </select>
+            <div className="text-xl font-semibold field">End DateTime</div>
             <DateTimePicker onChange={onEndDatetimeChange} value={endDate} />
           </div>
           <div className="col-span-2">
             <label className="text-xl font-semibold" htmlFor="category">
-              Category:
-              <select
-                id="category"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                value={formState.category}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    category: e.target.value,
-                  })
-                }
-                required
-              >
-                <option value="PairProgramming">PairProgramming</option>
-                <option value="Scrum">Scrum</option>
-                <option value="ClientMeeting">ClientMeeting</option>
-              </select>
+              Category
             </label>
-            <div className="text-xl font-semibold field">
-              Project:
-              <br />
-              <ProjectSelect
-                value={formState.projectID}
-                onChange={e =>
-                  setFormState({
-                    ...formState,
-                    projectID: e.target.value,
-                  })
-                }
-              />
-            </div>
+            <select
+              id="category"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              value={formState.category}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  category: e.target.value,
+                })
+              }
+              required
+            >
+              <option value="PairProgramming">PairProgramming</option>
+              <option value="Scrum">Scrum</option>
+              <option value="ClientMeeting">ClientMeeting</option>
+            </select>
+            <div className="text-xl font-semibold field">Project</div>
+            <br />
+            <ProjectSelect
+              value={formState.projectID}
+              onChange={e =>
+                setFormState({
+                  ...formState,
+                  projectID: e.target.value,
+                })
+              }
+            />
           </div>
         </div>
         <button
