@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "agileventures",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "AgileVentures Website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "AgileVentures <info@agileventures.org>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/agileventures/websitetwo/issues"
   },
   "dependencies": {
     "@apollo/client": "^3.2.9",
@@ -69,6 +69,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.2.2",
     "lint-staged": ">=10",
+    "msw": "^0.24.1",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.11.2",

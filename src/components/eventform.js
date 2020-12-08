@@ -332,12 +332,14 @@ const EventForm = props => {
         </div>
         <button
           type="button"
+          id="cancel-btn"
           className="bg-header hover:bg-grey-dark font-bold py-2 px-4 m-2 rounded-r rounded-lg shadow"
         >
           Cancel
         </button>
         <button
           type="submit"
+          id="save-btn"
           className="bg-header hover:bg-grey-dark font-bold py-2 px-4 m-2 rounded-r rounded-lg shadow"
         >
           Save
