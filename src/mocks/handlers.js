@@ -6,8 +6,33 @@ export const handlers = [
     return res(
       ctx.data({
         createEvent: {
-          id: 1,
+          id: 248,
           slug: "my-new-event",
+        },
+      })
+    )
+  }),
+  graphql.query("nextEvent", (req, res, ctx) => {
+    return res(
+      ctx.data({
+        nextEvent: {
+          event: {
+            id: 248,
+            name: "My New Event",
+            description: "A really big event.",
+            category: "PairProgramming",
+            duration: 30,
+            projectId: null,
+            startDatetime: "2020-12-05T07:52:51Z",
+            timeZone: "UTC",
+            repeats: "weekly",
+            repeatsEveryNWeeks: 1,
+            repeatsWeeklyEachDaysOfTheWeekMask: 6,
+            repeatEnds: false,
+            repeatEndsOn: null,
+            slug: "my-new-event",
+          },
+          time: "2020-12-09T07:52:51Z",
         },
       })
     )

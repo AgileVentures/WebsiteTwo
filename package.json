@@ -48,7 +48,8 @@
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "whatwg-fetch": "^3.5.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.2",

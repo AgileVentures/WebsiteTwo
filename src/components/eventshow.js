@@ -24,7 +24,9 @@ const EVENT = gql`
 
 export const PureEventShow = ({ data }) => (
   <div>
-    <h2 className="text-2xl font-bold">{data.nextEvent.event.name}</h2>
+    <h2 className="text-2xl font-bold" id="name">
+      {data.nextEvent.event.name}
+    </h2>
     <div>{data.nextEvent.event.description}</div>
     <hr className="h-0.5" />
     <div>Event type: {data.nextEvent.event.category}</div>
@@ -54,7 +56,7 @@ const EventShow = ({ slug }) => {
   })
 
   if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
+  if (error) return <p>Error : {error.message}</p>
 
   return <PureEventShow data={data} />
 }

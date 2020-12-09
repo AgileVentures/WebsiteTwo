@@ -1,11 +1,22 @@
 import React from "react"
-import renderer from "react-test-renderer"
-import { PureEventShow as EventShow } from "../../components/eventshow"
-import nextEvent from "../fixtures/nextevent"
+import { render, screen } from "@testing-library/react"
+import { ApolloProvider } from "@apollo/client"
+import { client } from "../ApolloClient"
+import EventShow from "../../components/eventshow"
 
-describe("EventShow", () => {
-  it("renders correctly", () => {
-    const tree = renderer.create(<EventShow data={nextEvent} />).toJSON()
-    expect(tree).toMatchSnapshot()
+const eventSlug = {
+  slug: "my-new-event",
+}
+
+describe("EventShowTest", () => {
+  it("should show the event", async () => {
+    render(
+      <ApolloProvider client={client}>
+        <EventShow data={eventSlug} />
+      </ApolloProvider>
+    )
+
+    const thediv = await screen.findByText("My New Event")
+    expect(thediv).toBeVisible()
   })
 })
