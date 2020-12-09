@@ -54,8 +54,10 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.8",
+    "@babel/core": "^7.0.0-0",
     "babel-jest": "^26.2.2",
     "babel-preset-gatsby": "^0.5.5",
+    "core-js": "^3.0.0",
     "cypress": "^4.12.1",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
@@ -74,7 +76,8 @@
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1",
     "start-server-and-test": "^1.11.2",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "typescript": ">=2.8.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
