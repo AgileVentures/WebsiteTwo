@@ -1,11 +1,11 @@
 import React from "react"
-import moment from "moment"
+import { DateTime } from "luxon"
 import { useQuery, gql } from "@apollo/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../utils/font-awesome"
 
 const EVENTS_LIST = gql`
-  query {
+  query listEvents {
     upcomingEvents {
       event {
         id
@@ -15,6 +15,8 @@ const EVENTS_LIST = gql`
         timeZone
         duration
         category
+        description
+        slug
       }
       time
     }
@@ -24,15 +26,32 @@ const EVENTS_LIST = gql`
 export const PureEventList = ({ data }) => (
   <div>
     {data.upcomingEvents.map(e => (
-      <div className="bg-white rounded shadow border p-6 mb-4 mt-0">
-        <h2 className="text-2xl font-bold">{e.event.name}</h2>
+      <div
+        className="bg-white rounded shadow border p-6 mb-4 mt-0"
+        key={`event-${e.event.id}-${DateTime.fromISO(e.time).toLocaleString(
+          DateTime.DATE_MED
+        )}`}
+      >
+        <h2 className="text-2xl font-bold">
+          <a href={`/events/${e.event.slug}`}>{e.event.name}</a>
+        </h2>
         <FontAwesomeIcon icon="calendar" />
         <span className="month text-gray-700">
-          {moment(e.time).format("dddd MMMM Do, YYYY")}
+          {" "}
+          {DateTime.fromISO(e.time).toLocaleString(
+            DateTime.DATE_MED_WITH_WEEKDAY
+          )}
         </span>
         <br />
         <FontAwesomeIcon icon="clock" />
-        <span className="text-gray-700">{moment(e.time).format("hh:mma")}</span>
+        <span className="text-gray-700">
+          {" "}
+          {DateTime.fromISO(e.time).toLocaleString(DateTime.TIME_SIMPLE)}-
+          {DateTime.fromISO(e.time)
+            .plus({ minutes: e.event.duration })
+            .toLocaleString(DateTime.TIME_SIMPLE)}
+        </span>
+        <div>{e.event.description}</div>
       </div>
     ))}
   </div>
